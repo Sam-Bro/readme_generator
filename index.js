@@ -18,6 +18,28 @@ inquirer
       name: "shortDescription",
       message: "Give a short description of your project?",
     },
+    /* description */
+    {
+      type: "input",
+      name: "description",
+      message: "Describe your project",
+    },
+    {
+      type: "input",
+      name: "whyBuild",
+      message: "This project was built because?",
+    },
+    {
+      type: "input",
+      name: "problemSolved",
+      message: "What problem does it solve?",
+    },
+    {
+      type: "input",
+      name: "whatLearnt",
+      message: "What did you learn?",
+    },
+    /*end description */
     {
       type: "input",
       name: "installation",
@@ -29,7 +51,7 @@ inquirer
       message: "What is the version number of your project?",
     },
   ])
-  .then(({ name, projectName, shortDescription, installation, versionNo }) => {
+  .then(({ name, projectName, shortDescription, installation, versionNo, description, whyBuild, problemSolved, whatLearnt  }) => {
     const readMeGenHTML = `
 # ${projectName}
 ![version](https://img.shields.io/badge/version-${versionNo}-blue)
@@ -38,7 +60,9 @@ made by ${name}
 
 > ${shortDescription} 
 
-a command-line application that dynamically generates a README.md from a user's input, the application will be invoked with the command "node index.js". The user will be prompted for their name, project description and other information pertaining to the project the README is for.
+${description}
+
+This project was built because ${whyBuild}. The ${projectName} helps solve the problem of ${problemSolved}. In the duration of this project, I learned ${whatLearnt}.
 
 ## Table of Contents
 
