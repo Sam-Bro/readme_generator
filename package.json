@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Sam-Bro/readme_generator#readme",
   "dependencies": {
+    "gh-badges": "^2.2.1",
     "inquirer": "^7.1.0"
   }
 }
