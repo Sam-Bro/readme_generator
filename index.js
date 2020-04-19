@@ -1,3 +1,4 @@
+const { BadgeFactory } = require('gh-badges')
 var fs = require ('fs');
 var inquirer = require('inquirer');
 inquirer
