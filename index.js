@@ -7,16 +7,19 @@ inquirer
       type: "input",
       name: "projectName",
       message: "What is the name of your project?",
+      default: "README generator"
     },
     {
       type: "input",
-      name: "name",
-      message: "What is your name?",
+      name: "versionNo",
+      message: "What is the version number of your project?",
+      default: "1.0"
     },
     {
       type: "input",
       name: "shortDescription",
       message: "Give a short description of your project?",
+      default: "dynamically generate a readme from a users input"
     },
     /* description */
     {
@@ -44,25 +47,50 @@ inquirer
       type: "input",
       name: "installation",
       message: "What is needed to get your project running?",
+      Default: "No installation required"
+    },
+    {
+        type: 'input',
+        name: "usage",
+        message: "How do you use the project?"
+    },
+    {
+        type: 'input',
+        name: "licence",
+        message: "What licenses does your project have?"
+    },
+    {
+        type: 'input',
+        name: "contributing",
+        message: "how are people able to contribute?",
+        default: "contributions are not currently open to public."
+    },
+    {
+        type: 'input',
+        name: "tests",
+        message: "what tests are available for the project?",
+        default: "No tests available"
+    },
+    {
+      type: 'input',
+      name: 'github',
+      message: 'what is the github url for the project?'
     },
     {
       type: "input",
-      name: "versionNo",
-      message: "What is the version number of your project?",
+      name: "name",
+      message: "What is your name?",
+      default: "Samuel Broughton"
     },
   ])
-  .then(({ name, projectName, shortDescription, installation, versionNo, description, whyBuild, problemSolved, whatLearnt  }) => {
+  .then(({ name, projectName, shortDescription, installation, versionNo, description, whyBuild, problemSolved, whatLearnt, usage, licence, contributing, tests, github  }) => {
     const readMeGenHTML = `
 # ${projectName}
 ![version](https://img.shields.io/badge/version-${versionNo}-blue)
 
-made by ${name}
-
 > ${shortDescription} 
 
-${description}
-
-This project was built because ${whyBuild}. The ${projectName} helps solve the problem of ${problemSolved}. In the duration of this project, I learned ${whatLearnt}.
+${description}. This project was built because ${whyBuild}. The ${projectName} helps solve the problem of ${problemSolved}. In the duration of this project, I learned ${whatLearnt}.
 
 ## Table of Contents
 
@@ -78,14 +106,22 @@ This project was built because ${whyBuild}. The ${projectName} helps solve the p
 To install and use this application, ${installation}
 
 ## usage
-To use the application, open terminal in the folder containing the index.js file. enter "node index.js" into the terminal and answer the prompts, once all of the prompts have been answered a README.md file will be created in the same file as index.js.
+To use the application, ${usage}
 
 ## licence
-No licences 
+project licences: 
+ ${licence}
 
 ## contributing
-contributions are not currently open to public.
-Contact repository owner with any inquiries regarding contributions.
+${contributing}
+
+## tests
+${tests}
+
+## questions
+  - github Repository: ${github}
+  - github: https://sam-bro.github.io/
+  - Created by ${name}
     
 `;
 
@@ -104,30 +140,5 @@ Contact repository owner with any inquiries regarding contributions.
   });
 
 /*
-  ,
-    {
-        type: 'input',
-        name: "usage",
-        message: "How do you use the project?"
-    },
-    {
-        type: 'input',
-        name: "licence",
-        message: "What licenses does your project have?"
-    },
-    {
-        type: 'input',
-        name: "contributing",
-        message: "how are people able to contribute?"
-    },
-    {
-        type: 'input',
-        name: "tests",
-        message: "what tests?"
-    },
-    {
-        type: 'input',
-        name: "questions",
-        message: "questions?"
-    }
+
     */
